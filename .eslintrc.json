@@ -1,14 +1,103 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "prettier" // Add "prettier" last. This will turn off eslint rules conflicting with prettier. This is not what will format our code.
-  ],
-  "plugins": ["@typescript-eslint"],
-  "parser": "@typescript-eslint/parser",
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+  "root": true, // является ли текущая директория root
+  "env": { // определить доступные переменные среды
+    "browser": true,
+    "es2018": true
   },
-  "root": true
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@next/next/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020, // поддержка версии синтаксиса ECMAScript
+    "sourceType": "module", // весь код в модулях ECMAScript
+    "project": true, // найти ближайший tsconfig.json для parser @typescript-eslint
+    "tsconfigRootDir": ".", // путь к root директории проекта
+    "ecmaFeatures": {
+      "jsx": true // дополнительная поддержка jsx
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // определить версию React из package.json
+    },
+    "import/resolver": { // подстройка под tsconfig в распознавании расширений и alias в путях import
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "no-shadow": "warn", // совпадение имён переменных в локальной и внешней областях видимости
+    "no-plusplus": "off", // использование инкрементов (++) и декрементов (--)
+    "padding-line-between-statements": [ // отделение строкой тела и return функции
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "error", // неиспользуемые переменные
+    "@typescript-eslint/no-explicit-any": "error", // неявные any-типы
+    "@typescript-eslint/explicit-module-boundary-types": "off", // чёткое указание типов результатов функций
+    "import/prefer-default-export": "off", // предпочитать export default
+    "import/no-unresolved": "error", // потерянный import
+    "import/extensions": [ // требовать расширение файла
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/react-in-jsx-scope": "off", // не нужно импортировать React в Next
+    "react-hooks/rules-of-hooks": "error", // проверка React hooks
+    "react-hooks/exhaustive-deps": "warn", // полнота зависимостей в React hooks
+    "react/jsx-props-no-spreading": "off", // передача props в компонент через spread,
+    "react/jsx-filename-extension": [ // позволяем использовать JSX в файлах с расширениями
+      1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
+    "react/function-component-definition": [ // в виде какой функции объявлять компоненты
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/require-default-props": [ // значение по умолчанию для необязательных props
+      1,
+      {
+        "functions": "defaultArguments"
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [ // для совместимости с компонентами Next
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
+      }
+    ]
+  }
 }
