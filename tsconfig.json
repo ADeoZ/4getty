@@ -25,7 +25,14 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+    },
   },
   "include": [ // какие файлы обрабатывать
     "next-env.d.ts",
