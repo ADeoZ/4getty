@@ -29,14 +29,20 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "components/*"
+      "@/basic/*": [
+        "components/basic/*"
       ],
-      "@/pages/*": [
-        "pages/*"
+      "@/entities/*": [
+        "components/entities/*"
+      ],
+      "@/widgets/*": [
+        "components/widgets/*"
       ],
       "@/styles/*": [
         "styles/*"
+      ],
+      "@/public/*": [
+        "public/*"
       ]
     },
   },
