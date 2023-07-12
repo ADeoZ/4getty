@@ -5,6 +5,10 @@ export const content = [
   './components/**/*.{js,ts,jsx,tsx,mdx}',
 ];
 export const theme = {
-  extend: {},
+  extend: {
+    fontFamily: {
+      sans: ['var(--font-nunito-sans)'],
+    },
+  },
 };
 export const plugins = [];
