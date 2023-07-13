@@ -3,6 +3,4 @@ type H2Props = {
   className?: string;
 };
 
-export const H2 = ({ children, className }: H2Props) => {
-  return <h2 className={className}>{children}</h2>;
-};
+export const H2 = ({ children, className }: H2Props) => <h2 className={className}>{children}</h2>;

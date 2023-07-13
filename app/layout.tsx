@@ -1,7 +1,7 @@
 import '@/styles/tailwind.css';
-import { Nunito_Sans } from 'next/font/google';
+import { Nunito_Sans as NunitoSansFont } from 'next/font/google';
 
-const nunito_sans = Nunito_Sans({
+const nunitoSans = NunitoSansFont({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
   axes: ['wdth', 'YTLC'],
@@ -9,12 +9,10 @@ const nunito_sans = Nunito_Sans({
   variable: '--font-nunito-sans',
 });
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <html lang='ru' className={`${nunito_sans.variable}`}>
-      <body>{children}</body>
-    </html>
-  );
-};
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+  <html lang='ru' className={`${nunitoSans.variable}`}>
+    <body>{children}</body>
+  </html>
+);
 export default RootLayout;
 export const APP_VERSION = 'v1.0.0';

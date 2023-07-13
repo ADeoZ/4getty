@@ -3,6 +3,4 @@ type TextProps = {
   className?: string;
 };
 
-export const Text = ({ children, className }: TextProps) => {
-  return <p className={className}>{children}</p>;
-};
+export const Text = ({ children, className }: TextProps) => <p className={className}>{children}</p>;
