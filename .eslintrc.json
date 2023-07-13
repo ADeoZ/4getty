@@ -63,6 +63,7 @@
     "react-hooks/rules-of-hooks": "error", // проверка React hooks
     "react-hooks/exhaustive-deps": "warn", // полнота зависимостей в React hooks
     "react/jsx-props-no-spreading": "off", // передача props в компонент через spread,
+    "react/require-default-props": "off", // требовать defaultProps
     "react/jsx-filename-extension": [ // позволяем использовать JSX в файлах с расширениями
       1,
       {
@@ -75,12 +76,6 @@
       2,
       {
         "namedComponents": "arrow-function"
-      }
-    ],
-    "react/require-default-props": [ // значение по умолчанию для необязательных props
-      1,
-      {
-        "functions": "defaultArguments"
       }
     ],
     "jsx-a11y/anchor-is-valid": [ // для совместимости с компонентами Next
