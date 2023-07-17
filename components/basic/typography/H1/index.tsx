@@ -6,5 +6,9 @@ type H1Props = {
 };
 
 export const H1 = ({ children, className }: H1Props) => (
-  <h1 className={classnames('mb-5 text-5xl', className)}>{children}</h1>
+  <h1
+    className={classnames('mb-6 mt-0 text-4xl font-bold leading-tight text-blacky-main', className)}
+  >
+    {children}
+  </h1>
 );

@@ -9,6 +9,11 @@ export const theme = {
     fontFamily: {
       sans: ['var(--font-nunito-sans)'],
     },
+    colors: {
+      'blacky-main': '#1e293b',
+      bluefy: '#046176',
+      orangify: '#dc7c48',
+    },
   },
 };
 export const plugins = [];
