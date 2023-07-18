@@ -11,7 +11,11 @@ const nunitoSans = NunitoSansFont({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang='ru' className={`${nunitoSans.variable}`}>
-    <body>{children}</body>
+    <body>
+      <div className='h-screen bg-gradient-to-r from-zinc-200 via-transparent to-zinc-200'>
+        {children}
+      </div>
+    </body>
   </html>
 );
 export default RootLayout;
