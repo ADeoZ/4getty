@@ -1,0 +1,7 @@
+.menu__a {
+  @apply text-orange-600 hover:border-b hover:border-cyan-600 hover:text-cyan-600;
+}
+
+.menu__a_active {
+  @apply border-b border-zinc-600 text-zinc-600;
+}
