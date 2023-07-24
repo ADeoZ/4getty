@@ -1,10 +1,10 @@
 import { twMerge } from 'tailwind-merge';
 
-type TextProps = {
+type PProps = {
   children?: React.ReactNode;
   className?: string;
 };
 
-export const Text = ({ children, className }: TextProps) => (
+export const P = ({ children, className }: PProps) => (
   <p className={twMerge('mb-6 leading-relaxed text-black', className)}>{children}</p>
 );
