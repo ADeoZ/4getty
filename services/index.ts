@@ -1,0 +1,1 @@
+export { apiMemo } from './memo';
