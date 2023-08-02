@@ -49,6 +49,14 @@
     "@typescript-eslint/no-unused-vars": "error", // неиспользуемые переменные
     "@typescript-eslint/no-explicit-any": "error", // неявные any-типы
     "@typescript-eslint/explicit-module-boundary-types": "off", // чёткое указание типов результатов функций
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": {
+          "attributes": false
+        }
+      }
+    ],
     "import/prefer-default-export": "off", // предпочитать export default
     "import/no-unresolved": "error", // потерянный import
     "import/extensions": [ // требовать расширение файла
