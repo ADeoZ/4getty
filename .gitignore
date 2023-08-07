@@ -4,5 +4,8 @@ node_modules/
 # next.js build output
 .next
 
+# next.js environment variables
+.env.local
+
 # to-do list just for me
 TODO.md
