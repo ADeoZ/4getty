@@ -7,11 +7,11 @@ export type CardHeaderProps = CardRatingProps & {
 
 export const CardHeader = ({
   rating = 0,
-  hasMark: isMarked = false,
+  hasMark = false,
   title = '',
 }: CardHeaderProps) => (
   <header>
-    <CardRating rating={rating} hasMark={isMarked} />
+    <CardRating rating={rating} hasMark={hasMark} />
     <H2>{title}</H2>
   </header>
 );
