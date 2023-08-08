@@ -1,22 +1,19 @@
+import { MakeMarkResponse, MemoItem } from './models';
+
 export class apiMemo {
-  static async getMemo({ memoId }: { memoId: number }) {
-    const res = await fetch(`${process.env.BASE_URL ?? ''}/api/memo/${memoId}`, {
+  static async getMemo({ id }: Pick<MemoItem, 'id'>) {
+    const res = await fetch(`${process.env.BASE_URL ?? ''}/api/memo/${id}`, {
       method: 'GET',
     });
 
-    return res.json() as Promise<{
-      title: string;
-      content: string;
-      rating: number;
-      hasMark: boolean;
-    }>; // fix
+    return res.json() as Promise<Omit<MemoItem, 'id'>>; // fix
   }
 
-  static async makeMark({ memoId }: { memoId: number }) {
-    const res = await fetch(`${process.env.BASE_URL ?? ''}/api/memo/${memoId}/mark`, {
+  static async makeMark({ id }: Pick<MemoItem, 'id'>) {
+    const res = await fetch(`${process.env.BASE_URL ?? ''}/api/memo/${id}/mark`, {
       method: 'POST',
     });
 
-    return res.json() as Promise<{ success: string }>; // fix
+    return res.json() as Promise<MakeMarkResponse>;
   }
 }
