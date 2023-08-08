@@ -1,7 +1,7 @@
-import { apiMemo } from 'services';
+import { ApiMemo } from 'services';
 
 export const makeMark = async ({ memoId }: { memoId: number }) => {
-  const data = await apiMemo.makeMark({ id: memoId });
+  const data = await ApiMemo.makeMark({ id: memoId });
 
   return data.success;
 };

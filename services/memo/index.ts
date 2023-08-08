@@ -1,6 +1,6 @@
 import { MakeMarkResponse, MemoItem } from './models';
 
-export class apiMemo {
+export class ApiMemo {
   static async getMemo({ id }: Pick<MemoItem, 'id'>) {
     const res = await fetch(`${process.env.BASE_URL ?? ''}/api/memo/${id}`, {
       method: 'GET',

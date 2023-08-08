@@ -1,1 +1,1 @@
-export { apiMemo } from './memo';
+export { ApiMemo } from './memo';
