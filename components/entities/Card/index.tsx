@@ -5,7 +5,7 @@ type CardProps = {
 };
 
 export const Card = ({ children }: CardProps) => (
-  <Paper as='article' className='p-6'>
+  <Paper as='article' className='w-[36rem] p-6'>
     {children}
   </Paper>
 );
