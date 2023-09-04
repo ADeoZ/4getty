@@ -6,9 +6,22 @@ type CardListProps = CardHeaderProps & {
   content: string;
 };
 
-export const CardList = ({ content, rating, hasMark, title }: CardListProps) => (
+export const CardList = ({
+  content,
+  rating,
+  hasMark,
+  title,
+  author,
+  timestamps,
+}: CardListProps) => (
   <Card>
-    <CardHeader rating={rating} hasMark={hasMark} title={title} />
+    <CardHeader
+      author={author}
+      timestamps={timestamps}
+      rating={rating}
+      hasMark={hasMark}
+      title={title}
+    />
     <P>{content}</P>
   </Card>
 );
