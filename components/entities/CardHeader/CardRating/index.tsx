@@ -2,12 +2,10 @@
 
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { CardHeaderProps } from '..';
 import { makeMark } from './controllers';
 
-export type CardRatingProps = {
-  rating: number;
-  hasMark: boolean;
-};
+export type CardRatingProps = Pick<CardHeaderProps, 'rating' | 'hasMark'>;
 
 export const CardRating = ({ rating, hasMark }: CardRatingProps) => {
   const [mark, setMark] = useState<boolean>(hasMark);

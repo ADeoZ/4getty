@@ -1,11 +1,16 @@
+import { MemoCategory, MemoTypes } from 'services/memo/models';
 import { A } from '@/basic/A';
 
 type CategoryProps = {
-  category: { id: string; name: string };
-  type: 'todo' | 'list';
+  category: MemoCategory;
+  type: MemoTypes;
 };
 
-const categoryLabels = {
+type CategoryLabels = {
+  [key in MemoTypes]: string;
+};
+
+const categoryLabels: CategoryLabels = {
   todo: 'To-Do',
   list: 'Перечень',
 };

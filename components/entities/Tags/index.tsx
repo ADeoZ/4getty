@@ -1,8 +1,7 @@
+import { MemoItem } from 'services/memo/models';
 import { A } from '@/basic/A';
 
-type TagsProps = {
-  tags: string[];
-};
+type TagsProps = Pick<MemoItem, 'tags'>;
 
 export const Tags = ({ tags }: TagsProps) => (
   <ul className='flex gap-2'>

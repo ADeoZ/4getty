@@ -1,15 +1,12 @@
+import { MemoItem, MemoRating } from 'services/memo/models';
 import { H2 } from '@/basic/typography/H2';
-import { CardAuthor, CardAuthorProps } from './CardAuthor';
-import { CardRating, CardRatingProps } from './CardRating';
+import { CardAuthor } from './CardAuthor';
+import { CardRating } from './CardRating';
 
-export type CardHeaderProps = CardRatingProps &
-  Omit<CardAuthorProps, 'created'> & {
-    title: string;
-    timestamps: {
-      created: string;
-      updated: string;
-    };
-  };
+export type CardHeaderProps = Pick<MemoItem, 'author' | 'title' | 'timestamps'> & {
+  rating: MemoRating['value'];
+  hasMark: MemoRating['hasMark'];
+};
 
 export const CardHeader = ({
   rating = 0,

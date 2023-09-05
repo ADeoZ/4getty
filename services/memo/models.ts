@@ -1,24 +1,24 @@
 export type MemoTypes = 'todo' | 'list';
 
-type ToDoItem = {
+export type ToDoItem = {
   id: string;
   label: string;
   checked: boolean;
 };
 
-type MemoTimestamps = {
+export type MemoTimestamps = {
   created: string;
   updated: string;
 };
 
-type MemoCategory = {
+export type MemoCategory = {
   id: string;
   name: string;
 };
 
-type MemoRating = { value: number; hasMark: boolean };
+export type MemoRating = { value: number; hasMark: boolean };
 
-type MemoTag = string;
+export type MemoTag = string;
 
 export type MemoItem = {
   id: number;
