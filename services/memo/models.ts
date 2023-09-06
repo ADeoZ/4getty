@@ -21,7 +21,7 @@ export type MemoRating = { value: number; hasMark: boolean };
 export type MemoTag = string;
 
 export type MemoItem = {
-  id: number;
+  id: string;
   author: string;
   timestamps: MemoTimestamps;
   title: string;
@@ -29,10 +29,7 @@ export type MemoItem = {
   category: MemoCategory;
   tags: MemoTag[];
   list: ToDoItem[];
-  content: string;
   rating: MemoRating;
 };
 
 export type ListMemo = MemoItem[];
-
-export type MakeMarkResponse = { success: string };

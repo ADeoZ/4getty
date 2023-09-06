@@ -15,7 +15,7 @@ export const CardRating = ({ rating, hasMark }: CardRatingProps) => {
   // по статусу меняем отметку на рейтинге и прибавляем единицу к рейтингу
   // общее количество рейтинга не меняем до перезагрузки карточки
   const markHandler = async () => {
-    const makeMarkRes = await makeMark({ memoId: 17 });
+    const makeMarkRes = await makeMark({ memoId: '17' });
     if (makeMarkRes) setMark(true);
   };
 

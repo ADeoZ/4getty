@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   const memo = {
+    id: 17,
     author: 'DeoZ',
     timestamps: {
       created: '2023-08-19T07:54:10.277Z',
       updated: '2023-09-04T18:12:37.277Z',
     },
-    title: 'Тестовый заголовок',
+    title: 'Взять в путешествие',
     type: 'todo',
     category: { id: 'category1', name: 'Взять с собой' },
     tags: [
