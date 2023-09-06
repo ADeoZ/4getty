@@ -1,11 +1,11 @@
 import { MemoItem, MemoRating } from 'services/memo/models';
-import { P } from '@/basic/typography/P';
 import { Card } from '@/entities/Card';
 import { CardHeader } from '@/entities/CardHeader';
 import { Category } from '@/entities/Category';
 import { Tags } from '@/entities/Tags';
+import { List } from '@/entities/List';
 
-type CardListProps = Omit<MemoItem, 'id' | 'list' | 'rating'> & {
+type CardListProps = Omit<MemoItem, 'id' | 'rating'> & {
   rating: MemoRating['value'];
   hasMark: MemoRating['hasMark'];
 };
@@ -16,10 +16,10 @@ export const CardList = ({
   tags,
   author,
   timestamps,
-  content,
   rating,
   hasMark,
   title,
+  list,
 }: CardListProps) => (
   <div className='mt-16 flex flex-col items-center'>
     <Category category={category} type={type} />
@@ -31,7 +31,7 @@ export const CardList = ({
         hasMark={hasMark}
         title={title}
       />
-      <P>{content}</P>
+      <List items={list} />
       <Tags tags={tags} />
     </Card>
   </div>
