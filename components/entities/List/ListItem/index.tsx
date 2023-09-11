@@ -21,7 +21,10 @@ export const ListItem = ({ item }: ListItemProps) => {
 
   return (
     <li
-      className={twMerge('cursor-pointer py-1 pl-6 hover:line-through', checked && 'line-through')}
+      className={twMerge(
+        'cursor-pointer py-1 pl-6 decoration-2 hover:line-through',
+        checked && 'text-slate-500 line-through hover:no-underline',
+      )}
     >
       <div onClick={checkHandler} onKeyDown={keyHandler} role='button' tabIndex={0}>
         {item.label}
