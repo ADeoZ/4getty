@@ -16,8 +16,10 @@ export const CardHeader = ({
   timestamps,
 }: CardHeaderProps) => (
   <header>
-    <CardAuthor author={author} created={timestamps?.created} />
-    <CardRating rating={rating} hasMark={hasMark} />
+    <div className='flex justify-between'>
+      <CardAuthor author={author} created={timestamps?.created} />
+      <CardRating rating={rating} hasMark={hasMark} />
+    </div>
     <H2>{title}</H2>
   </header>
 );

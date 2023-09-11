@@ -24,7 +24,11 @@ export const CardRating = ({ rating, hasMark }: CardRatingProps) => {
 
   return (
     <div
-      className={twMerge('text-2xl font-bold', mark && 'text-green-700')}
+      className={twMerge(
+        'bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fde047")] px-2 py-4 text-2xl font-bold hover:bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-4&color=15803d")]',
+        mark &&
+          'bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-4&color=15803d")] hover:bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fde047")]',
+      )}
       onClick={markHandler}
       onKeyDown={keyHandler}
       role='button'

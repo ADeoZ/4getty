@@ -7,7 +7,7 @@ export type CardAuthorProps = Pick<CardHeaderProps, 'author'> & {
 };
 
 export const CardAuthor = ({ author, created }: CardAuthorProps) => (
-  <>
+  <div>
     <div>
       Автор:{' '}
       <A href='#author' className='font-semibold hover:text-cyan-600'>
@@ -17,5 +17,5 @@ export const CardAuthor = ({ author, created }: CardAuthorProps) => (
     <div>
       <DateString date={created} showTime />
     </div>
-  </>
+  </div>
 );
