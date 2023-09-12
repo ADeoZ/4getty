@@ -7,7 +7,7 @@ import { CardHeader } from '@/entities/CardHeader';
 import { Category } from '@/entities/Category';
 import { Tags } from '@/entities/Tags';
 import { List } from '@/entities/List';
-import { makeMark } from './controllers';
+import { checkListItem, makeMark, uncheckListItem } from './controllers';
 
 type CardListProps = Omit<MemoItem, 'rating'> & {
   rating: MemoRating['value'];
@@ -26,14 +26,24 @@ export const CardList = ({
   title,
   list,
 }: CardListProps) => {
-  const workingList = list.filter(({ checked }) => !checked);
-  const checkedList = list.filter(({ checked }) => checked);
-
+  const [itemList, setItemList] = useState(list);
   const [mark, setMark] = useState(hasMark);
+
+  const workingList = itemList.filter(({ checked }) => !checked);
+  const checkedList = itemList.filter(({ checked }) => checked);
 
   const markHandler = async () => {
     const makeMarkRes = await makeMark({ memoId: id });
     if (makeMarkRes) setMark(true);
+  };
+
+  const changeCheckHandler = async (itemId: string, checked: boolean) => {
+    const changeCheckMethod = checked ? uncheckListItem : checkListItem;
+    const changeCheckRes = await changeCheckMethod({ memoId: id, itemId });
+    if (changeCheckRes)
+      setItemList((prev) =>
+        prev.map((item) => (item.id === itemId ? { ...item, checked: !checked } : item)),
+      );
   };
 
   return (
@@ -48,8 +58,14 @@ export const CardList = ({
           title={title}
           markHandler={markHandler}
         />
-        <List items={workingList} />
-        <List title={`Уже отмечено (${list.length}):`} items={checkedList} />
+        <List items={workingList} changeCheckHandler={changeCheckHandler} />
+        {checkedList.length > 0 && (
+          <List
+            title={`Уже отмечено (${checkedList.length}):`}
+            items={checkedList}
+            changeCheckHandler={changeCheckHandler}
+          />
+        )}
         <Tags tags={tags} />
       </Card>
     </div>

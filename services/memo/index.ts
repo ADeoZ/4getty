@@ -8,7 +8,7 @@ type UncheckItemRequest = CheckItemRequest;
 
 export class ApiMemo {
   static async getMemo({ id }: Pick<MemoItem, 'id'>) {
-    return Request.get<Omit<MemoItem, 'id'>>(`/api/memo/${id}`);
+    return Request.get<MemoItem>(`/api/memo/${id}`);
   }
 
   static async makeMark({ id }: Pick<MemoItem, 'id'>) {
