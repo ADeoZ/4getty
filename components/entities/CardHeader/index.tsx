@@ -6,6 +6,7 @@ import { CardRating } from './CardRating';
 export type CardHeaderProps = Pick<MemoItem, 'author' | 'title' | 'timestamps'> & {
   rating: MemoRating['value'];
   hasMark: MemoRating['hasMark'];
+  markHandler: () => void;
 };
 
 export const CardHeader = ({
@@ -14,11 +15,12 @@ export const CardHeader = ({
   title,
   author,
   timestamps,
+  markHandler,
 }: CardHeaderProps) => (
   <header>
     <div className='flex justify-between'>
       <CardAuthor author={author} created={timestamps?.created} />
-      <CardRating rating={rating} hasMark={hasMark} />
+      <CardRating rating={rating} hasMark={hasMark} clickHandler={markHandler} />
     </div>
     <H2>{title}</H2>
   </header>
