@@ -7,6 +7,10 @@ type CheckItemRequest = { memoId: MemoItem['id']; itemId: ToDoItem['id'] };
 type UncheckItemRequest = CheckItemRequest;
 
 export class ApiMemo {
+  static async getAllMemos() {
+    return Request.get<MemoItem[]>(`/api/memo/all`);
+  }
+
   static async getMemo({ id }: Pick<MemoItem, 'id'>) {
     return Request.get<MemoItem>(`/api/memo/${id}`);
   }
