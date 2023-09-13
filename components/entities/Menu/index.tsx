@@ -8,10 +8,10 @@ import styles from './styles.module.css';
 type MenuProps = { className?: string };
 
 const siteLinks = [
+  { href: '/all', name: 'Все памятки' },
+  { href: '/categories', name: 'Категории' },
+  { href: '/tags', name: 'Тэги' },
   { href: '/memorize', name: 'Создать памятку' },
-  { href: '#', name: 'Категории' },
-  { href: '#', name: 'Типы' },
-  { href: '#', name: 'Тэги' },
 ];
 
 export const Menu = ({ className }: MenuProps) => {
