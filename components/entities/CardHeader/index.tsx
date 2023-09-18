@@ -1,27 +1,5 @@
-import { MemoItem, MemoRating } from 'services/memo/models';
-import { H2 } from '@/basic/typography/H2';
-import { CardAuthor } from './CardAuthor';
-import { CardRating } from './CardRating';
+import React from 'react';
 
-export type CardHeaderProps = Pick<MemoItem, 'author' | 'title' | 'timestamps'> & {
-  rating: MemoRating['value'];
-  hasMark: MemoRating['hasMark'];
-  markHandler: () => void;
-};
+export type CardHeaderProps = { children?: React.ReactNode };
 
-export const CardHeader = ({
-  rating = 0,
-  hasMark = false,
-  title,
-  author,
-  timestamps,
-  markHandler,
-}: CardHeaderProps) => (
-  <header>
-    <div className='flex justify-between'>
-      <CardAuthor author={author} created={timestamps?.created} />
-      <CardRating rating={rating} hasMark={hasMark} clickHandler={markHandler} />
-    </div>
-    <H2>{title}</H2>
-  </header>
-);
+export const CardHeader = ({ children }: CardHeaderProps) => <header>{children}</header>;

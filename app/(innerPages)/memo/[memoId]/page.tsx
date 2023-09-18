@@ -16,8 +16,7 @@ const Page = async ({ params }: { params: { memoId: string } }) => {
         timestamps={memo.timestamps}
         title={memo.title}
         list={memo.list}
-        rating={memo.rating.value}
-        hasMark={memo.rating.hasMark}
+        rating={memo.rating}
       />
     )
   );

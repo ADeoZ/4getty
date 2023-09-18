@@ -1,7 +1,7 @@
+import { ToDoItem } from 'services/memo/models';
 import { twMerge } from 'tailwind-merge';
-import { ListProps } from '..';
 
-type ListItemProps = { item: ListProps['items'][number]; clickHandler: () => void };
+type ListItemProps = { item: ToDoItem; clickHandler: () => void };
 
 export const ListItem = ({ item, clickHandler }: ListItemProps) => {
   const keyHandler = (event: React.KeyboardEvent<HTMLElement>) =>

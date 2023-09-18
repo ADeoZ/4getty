@@ -1,18 +1,20 @@
 'use client';
 
-import { MemoItem, MemoRating } from 'services/memo/models';
 import { useState } from 'react';
+import { MemoItem } from 'services/memo/models';
+import { A } from '@/basic/A';
 import { Card } from '@/entities/Card';
+import { CardAuthor } from '@/entities/CardAuthor';
 import { CardHeader } from '@/entities/CardHeader';
+import { CardRating } from '@/entities/CardRating';
+import { CardTitle } from '@/entities/CardTitle';
 import { Category } from '@/entities/Category';
-import { Tags } from '@/entities/Tags';
 import { List } from '@/entities/List';
+import { ListItem } from '@/entities/ListItem';
+import { Tags } from '@/entities/Tags';
 import { checkListItem, makeMark, uncheckListItem } from './controllers';
 
-type CardListProps = Omit<MemoItem, 'rating'> & {
-  rating: MemoRating['value'];
-  hasMark: MemoRating['hasMark'];
-};
+type CardListProps = MemoItem;
 
 export const CardList = ({
   id,
@@ -22,12 +24,11 @@ export const CardList = ({
   author,
   timestamps,
   rating,
-  hasMark,
   title,
   list,
 }: CardListProps) => {
   const [itemList, setItemList] = useState(list);
-  const [mark, setMark] = useState(hasMark);
+  const [mark, setMark] = useState(rating.hasMark);
 
   const workingList = itemList.filter(({ checked }) => !checked);
   const checkedList = itemList.filter(({ checked }) => checked);
@@ -52,24 +53,42 @@ export const CardList = ({
       <div className='absolute right-0 top-1 z-10 border-b-[4rem] border-r-[4rem] border-amber-300 border-l-transparent border-r-transparent shadow-[-3px_3px_3px] shadow-zinc-800/10' /> */}
       <Category category={category} type={type} />
       <Card>
-        <CardHeader
-          author={author}
-          timestamps={timestamps}
-          rating={rating}
-          hasMark={mark}
-          title={title}
-          markHandler={markHandler}
-        />
-        <List items={workingList} changeCheckHandler={changeCheckHandler} />
+        <CardHeader>
+          <div className='flex justify-between'>
+            <CardAuthor author={author} created={timestamps?.created} />
+            <CardRating
+              ratingValue={rating.value}
+              ratingHasMark={mark}
+              clickHandler={markHandler}
+            />
+          </div>
+          <CardTitle title={title} />
+        </CardHeader>
+        <List>
+          {workingList.map((item) => (
+            <ListItem
+              item={item}
+              key={item.id}
+              clickHandler={() => changeCheckHandler(item.id, item.checked)}
+            />
+          ))}
+        </List>
         {checkedList.length > 0 && (
-          <List
-            title={`Уже отмечено (${checkedList.length}):`}
-            items={checkedList}
-            changeCheckHandler={changeCheckHandler}
-          />
+          <List title={`Уже отмечено (${checkedList.length}):`}>
+            {checkedList.map((item) => (
+              <ListItem
+                item={item}
+                key={item.id}
+                clickHandler={() => changeCheckHandler(item.id, item.checked)}
+              />
+            ))}
+          </List>
         )}
         <Tags tags={tags} />
       </Card>
+      <div className='mx-auto'>
+        <A href={`/memo/${id}/edit`}>править</A>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,9 @@
+import { MemoItem } from 'services/memo/models';
 import { A } from '@/basic/A';
 import { DateString } from '@/basic/DateString';
-import { CardHeaderProps } from '..';
 
-export type CardAuthorProps = Pick<CardHeaderProps, 'author'> & {
-  created: CardHeaderProps['timestamps']['created'];
+export type CardAuthorProps = Pick<MemoItem, 'author'> & {
+  created: MemoItem['timestamps']['created'];
 };
 
 export const CardAuthor = ({ author, created }: CardAuthorProps) => (
