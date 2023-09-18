@@ -14,7 +14,7 @@ const Error = ({ error, reset }: ErrorProps) => {
   }, [error]);
 
   return (
-    <div className='flex h-screen items-center justify-center'>
+    <div className='flex h-full min-h-screen items-center justify-center overflow-auto'>
       <Card>
         <H2>{error.message || 'Что-то пошло не так...'}</H2>
         <P>

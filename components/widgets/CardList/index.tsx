@@ -47,7 +47,9 @@ export const CardList = ({
   };
 
   return (
-    <div className='mt-16 flex flex-col items-center'>
+    <div className='mb-16 mt-16 flex flex-col items-center'>
+      {/* <div className='border-w absolute left-0 right-16 top-1 z-10 border-[2rem] border-amber-50' />
+      <div className='absolute right-0 top-1 z-10 border-b-[4rem] border-r-[4rem] border-amber-300 border-l-transparent border-r-transparent shadow-[-3px_3px_3px] shadow-zinc-800/10' /> */}
       <Category category={category} type={type} />
       <Card>
         <CardHeader

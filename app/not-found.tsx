@@ -4,7 +4,7 @@ import { P } from '@/basic/typography/P';
 import { Card } from '@/entities/Card';
 
 const Page404 = () => (
-  <div className='flex h-screen items-center justify-center'>
+  <div className='flex h-full min-h-screen items-center justify-center overflow-auto'>
     <Card>
       <div className='text-center text-9xl font-extrabold text-slate-200'>404</div>
       <H2>Такой страницы тут нет</H2>
