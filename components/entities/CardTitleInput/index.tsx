@@ -8,6 +8,10 @@ type CardTitleInputProps = Pick<MemoItem, 'title'> & {
 
 export const CardTitleInput = ({ title, submitHandler }: CardTitleInputProps) => (
   <H2>
-    <InputLine value={title} submitHandler={submitHandler} />
+    <InputLine
+      initialValue={title}
+      submitHandler={submitHandler}
+      validateHandler={(value) => Boolean(value.length)}
+    />
   </H2>
 );
