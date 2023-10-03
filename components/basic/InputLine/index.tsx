@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type InputLineProps<T extends string = string> = {
   initialValue?: T;
   submitHandler?: (value: T) => void;
   validateHandler?: (value: T) => boolean;
+  autoFocus?: boolean;
   className?: string;
 };
 
@@ -12,11 +13,16 @@ export const InputLine = ({
   initialValue = '',
   submitHandler,
   validateHandler,
+  autoFocus = false,
   className,
 }: InputLineProps) => {
   const inputElementRef = useRef<HTMLDivElement>(null);
   const valueRef = useRef<string>(initialValue);
   const [error, setError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (autoFocus && inputElementRef) inputElementRef.current?.focus();
+  }, [autoFocus]);
 
   const getCurrentValue = () =>
     inputElementRef.current?.innerText.replace(/(\r\n|\n|\r)+/gm, ' ').trim();
