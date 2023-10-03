@@ -73,7 +73,7 @@ export const InputLine = ({
   return (
     <div
       className={twMerge(
-        'caret-orange-600 transition-colors hover:bg-cyan-600/10 focus:shadow-[0_1px_0] focus:shadow-zinc-300 focus:outline-none peer-hover:bg-cyan-600/10',
+        'caret-orange-600 transition-colors hover:bg-cyan-600/10 focus:shadow-[0_1px_0] focus:shadow-zinc-300 focus:outline-none peer-hover/input-line:bg-cyan-600/10',
         error && ' bg-red-500/10 hover:bg-red-600/10 peer-hover:bg-red-600/10',
         className,
       )}

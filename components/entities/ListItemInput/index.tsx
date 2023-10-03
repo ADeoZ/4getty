@@ -18,16 +18,16 @@ export const ListItemInput = ({ item, submitHandler, deleteHandler }: ListItemIn
   };
 
   return (
-    <li className='group relative py-1 pl-6'>
+    <li className='group/list-item relative py-1 pl-6'>
       <div
-        className='peer invisible absolute left-0 top-1/2  -translate-y-1/2 cursor-move group-hover:visible'
+        className='peer/input-line invisible absolute left-0 top-1/2 -translate-y-1/2 cursor-move group-hover/list-item:visible'
         role='button'
         tabIndex={0}
       >
         <DragDropIcon />
       </div>
       <div
-        className='peer absolute right-4 top-1/2 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full hover:bg-orange-200 focus:outline-orange-600'
+        className='peer/input-line absolute right-4 top-1/2 flex h-6 w-6 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full hover:bg-orange-200 focus:outline-orange-600'
         role='button'
         tabIndex={0}
         onClick={deleteHandler}
