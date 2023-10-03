@@ -48,6 +48,8 @@ export const InputLine = ({
       valueRef.current = currentValue;
       if (submitHandler) submitHandler(currentValue);
     }
+
+    inputElementRef.current?.blur();
   };
 
   const keyHandler = (event: React.KeyboardEvent<HTMLElement>) => {
