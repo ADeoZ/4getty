@@ -1,11 +1,12 @@
 import { MemoItem } from 'services/memo/models';
+import { memo } from 'react';
 import { XIcon } from '@/basic/icons/XIcon';
 import { InputLine } from '@/basic/InputLine';
 import { PlusIcon } from '@/basic/icons/PlusIcon';
 
 type TagsInputProps = Pick<MemoItem, 'tags'>;
 
-export const TagsInput = ({ tags }: TagsInputProps) => (
+export const TagsInput = memo(({ tags }: TagsInputProps) => (
   <ul className='flex flex-wrap gap-2'>
     {tags.map((tag) => (
       <li
@@ -19,12 +20,12 @@ export const TagsInput = ({ tags }: TagsInputProps) => (
       </li>
     ))}
     <div className='flex min-w-[25%] grow'>
-      <PlusIcon className='self-center' />
+      <PlusIcon className='mr-0.5 self-center' />
       <InputLine
-        initialValue='Добавить тэг'
-        className='my-px flex w-full items-center text-sm text-slate-500 empty:leading-7'
+        placeholder='Добавить тэг'
+        className='my-px flex w-full cursor-text items-center text-sm text-slate-500 empty:leading-7'
         // submitHandler={submitHandler}
       />
     </div>
   </ul>
-);
+));
