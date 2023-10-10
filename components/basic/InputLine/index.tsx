@@ -10,6 +10,11 @@ type InputLineProps<T extends string = string> = {
   className?: string;
 };
 
+type InputLineHandleRef = {
+  focus: () => void;
+  reset: () => void;
+};
+
 export const InputLine = forwardRef(
   (
     {
@@ -20,7 +25,7 @@ export const InputLine = forwardRef(
       autoFocus = false,
       className,
     }: InputLineProps,
-    ref: ForwardedRef<unknown>,
+    ref: ForwardedRef<InputLineHandleRef>,
   ) => {
     const inputElementRef = useRef<HTMLDivElement>(null);
     const valueRef = useRef<string>(initialValue);
