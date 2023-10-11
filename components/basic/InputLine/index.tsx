@@ -12,6 +12,7 @@ type InputLineProps<T extends string = string> = {
 
 type InputLineHandleRef = {
   focus: () => void;
+  blur: () => void;
   reset: () => void;
 };
 
@@ -93,6 +94,11 @@ export const InputLine = forwardRef(
         focus() {
           if (inputElementRef.current) {
             inputElementRef.current.focus();
+          }
+        },
+        blur() {
+          if (inputElementRef.current) {
+            inputElementRef.current.blur();
           }
         },
         reset() {
