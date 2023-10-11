@@ -104,6 +104,7 @@ export const InputLine = forwardRef(
         reset() {
           if (inputElementRef.current) {
             inputElementRef.current.innerText = '';
+            valueRef.current = initialValue;
           }
         },
       }),
