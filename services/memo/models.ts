@@ -18,7 +18,7 @@ export type MemoCategory = {
 
 export type MemoRating = { value: number; hasMark: boolean };
 
-export type MemoTag = string;
+export type MemoTag = { id: string; label: string };
 
 export type MemoItem = {
   id: string;
@@ -27,7 +27,7 @@ export type MemoItem = {
   title: string;
   type: MemoTypes;
   category: MemoCategory;
-  tags: MemoTag[];
+  tagList: MemoTag[];
   list: ToDoItem[];
   rating: MemoRating;
 };

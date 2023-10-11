@@ -20,7 +20,7 @@ export const CardList = ({
   id,
   category,
   type,
-  tags,
+  tagList,
   author,
   timestamps,
   rating,
@@ -54,7 +54,7 @@ export const CardList = ({
       <Category category={category} type={type} />
       <Card>
         <CardHeader>
-          <div className='flex justify-between'>
+          <div className='mb-4 flex justify-between'>
             <CardAuthor author={author} created={timestamps?.created} />
             <CardRating
               ratingValue={rating.value}
@@ -84,10 +84,12 @@ export const CardList = ({
             ))}
           </List>
         )}
-        <Tags tags={tags} />
+        <Tags tagList={tagList} />
       </Card>
       <div className='mx-auto'>
-        <A href={`/memo/${id}/edit`}>править</A>
+        <A href={`/memo/${id}/edit`} className='hover:text-cyan-600'>
+          править
+        </A>
       </div>
     </div>
   );

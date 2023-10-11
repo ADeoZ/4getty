@@ -11,7 +11,7 @@ const Page = async ({ params }: { params: { memoId: string } }) => {
         id={memo.id}
         category={memo.category}
         type={memo.type}
-        tags={memo.tags}
+        tagList={memo.tagList}
         author={memo.author}
         timestamps={memo.timestamps}
         title={memo.title}
