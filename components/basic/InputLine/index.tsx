@@ -59,8 +59,6 @@ export const InputLine = forwardRef(
         valueRef.current = currentValue;
         if (submitHandler) submitHandler(currentValue);
       }
-
-      inputElementRef.current?.blur();
     };
 
     const keyHandler = (event: React.KeyboardEvent<HTMLElement>) => {
@@ -92,11 +90,13 @@ export const InputLine = forwardRef(
     useImperativeHandle(
       ref,
       () => ({
-        focus: () => {
-          inputElementRef?.current?.focus();
+        focus() {
+          if (inputElementRef.current) {
+            inputElementRef.current.focus();
+          }
         },
-        reset: () => {
-          if (inputElementRef && inputElementRef.current) {
+        reset() {
+          if (inputElementRef.current) {
             inputElementRef.current.innerText = '';
           }
         },
@@ -107,7 +107,7 @@ export const InputLine = forwardRef(
     return (
       <div
         className={twMerge(
-          'caret-orange-600 transition-colors empty:before:block empty:before:text-slate-400 empty:before:content-[attr(placeholder)] hover:bg-cyan-600/10 focus:shadow-[0_1px_0] focus:shadow-zinc-300 focus:outline-none peer-hover/input-line:bg-cyan-600/10',
+          'caret-orange-600 transition-colors empty:before:text-slate-400 empty:before:content-[attr(placeholder)] hover:bg-cyan-600/10 focus:shadow-[0_1px_0] focus:shadow-zinc-300 focus:outline-none peer-hover/input-line:bg-cyan-600/10',
           error && 'bg-red-500/10 hover:bg-red-600/10 peer-hover:bg-red-600/10',
           className,
         )}
