@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { ElementRef, memo, useRef } from 'react';
 import { ToDoItem } from 'services/memo/models';
 import { DragDropIcon } from '@/basic/icons/DragDropIcon';
 import { XIcon } from '@/basic/icons/XIcon';
@@ -11,10 +11,21 @@ type ListItemInputProps = {
 };
 
 export const ListItemInput = memo(({ item, submitHandler, deleteHandler }: ListItemInputProps) => {
-  const keyHandler = (event: React.KeyboardEvent<HTMLElement>) => {
+  const inputRef = useRef<ElementRef<typeof InputLine>>(null);
+
+  const keyHandlerDelete = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === 'Enter') {
       event?.preventDefault();
       deleteHandler(item.id);
+    }
+  };
+
+  const editItemHandler = (value: string) => {
+    if (!value) {
+      deleteHandler(item.id);
+    } else {
+      submitHandler(item.id, value);
+      inputRef.current?.blur();
     }
   };
 
@@ -32,15 +43,15 @@ export const ListItemInput = memo(({ item, submitHandler, deleteHandler }: ListI
         role='button'
         tabIndex={0}
         onClick={() => deleteHandler(item.id)}
-        onKeyDown={keyHandler}
+        onKeyDown={keyHandlerDelete}
       >
         <XIcon />
       </div>
       <InputLine
         initialValue={item.label}
-        submitHandler={(value) => submitHandler(value, item.id)}
-        validateHandler={(value) => Boolean(value.length)}
+        submitHandler={editItemHandler}
         className='pr-10'
+        ref={inputRef}
       />
     </li>
   );
