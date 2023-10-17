@@ -63,6 +63,7 @@ export const TagsInput = memo(({ tags, submitHandler, deleteHandler }: TagsInput
         <InputLine
           placeholder='Добавить тэг'
           submitHandler={addTagHandler}
+          maxLength={50}
           className='my-px w-full cursor-text items-center text-sm leading-7 text-slate-500'
           ref={inputRef}
         />
