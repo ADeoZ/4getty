@@ -1,4 +1,5 @@
-export type MemoTypes = 'todo' | 'list';
+const memoTypes = { todo: 'todo', list: 'list' };
+export type MemoTypes = keyof typeof memoTypes;
 
 export type ToDoItem = {
   id: string;
@@ -8,7 +9,7 @@ export type ToDoItem = {
 
 export type MemoTimestamps = {
   created: string;
-  updated: string;
+  updated?: string;
 };
 
 export type MemoCategory = {

@@ -84,7 +84,7 @@ export const CardList = ({
             ))}
           </List>
         )}
-        <Tags tagList={tagList} />
+        {tagList.length > 0 && <Tags tagList={tagList} />}
       </Card>
       <div className='mx-auto'>
         <A href={`/memo/${id}/edit`} className='hover:text-cyan-600'>

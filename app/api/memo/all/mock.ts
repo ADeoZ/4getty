@@ -1,4 +1,6 @@
-export const memos = [
+import { MemoItem } from 'services/memo/models';
+
+export const memos: MemoItem[] = [
   {
     id: 'testing_id',
     author: 'DeoZ',
@@ -28,7 +30,7 @@ export const memos = [
     rating: { value: 123456, hasMark: true },
   },
   {
-    id: 17,
+    id: '17',
     author: 'DeoZ',
     timestamps: {
       created: '2023-08-19T07:54:10.277Z',
@@ -37,7 +39,7 @@ export const memos = [
     title: 'Взять в путешествие',
     type: 'todo',
     category: { id: 'category1', name: 'Взять с собой' },
-    tags: [
+    tagList: [
       { id: 'путешествия', label: 'путешествия' },
       { id: 'море', label: 'море' },
       { id: 'отпуск', label: 'отпуск' },
@@ -72,7 +74,7 @@ export const memos = [
     title: 'Достопримечательности Дубая',
     type: 'todo',
     category: { id: 'dostoprimechatelnosti-1', name: 'Достопримечательности' },
-    tags: [
+    tagList: [
       { id: 'достопримечательности', label: 'достопримечательности' },
       { id: 'Дубай', label: 'Дубай' },
       { id: 'ОАЭ', label: 'ОАЭ' },
