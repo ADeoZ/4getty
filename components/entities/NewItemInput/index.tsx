@@ -1,10 +1,10 @@
-import { ElementRef, useRef } from 'react';
+import { ElementRef, memo, useRef } from 'react';
 import { PlusIcon } from '@/basic/icons/PlusIcon';
 import { InputLine } from '@/basic/InputLine';
 
 type NewItemInputProps = { submitHandler: (value: string) => void };
 
-export const NewItemInput = ({ submitHandler }: NewItemInputProps) => {
+export const NewItemInput = memo(({ submitHandler }: NewItemInputProps) => {
   const inputRef = useRef<ElementRef<typeof InputLine>>(null);
 
   const focusInputLine = () => inputRef.current?.focus();
@@ -37,4 +37,4 @@ export const NewItemInput = ({ submitHandler }: NewItemInputProps) => {
       />
     </li>
   );
-};
+});
