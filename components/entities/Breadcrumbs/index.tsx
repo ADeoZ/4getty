@@ -16,7 +16,7 @@ const typeLabels: TypeLabels = {
 };
 
 export const Breadcrumbs = ({ type, children }: BreadcrumbsProps) => (
-  <div className='flex gap-2'>
+  <div className='mb-1 flex items-center gap-2'>
     <div className='font-semibold'>{typeLabels[type]}</div>
     <ArrowRightIcon className='m-auto' />
     {children}
