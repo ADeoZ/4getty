@@ -36,7 +36,7 @@ export const TagsInput = memo(({ tags, submitHandler, deleteHandler }: TagsInput
       {tags.map((tag) => (
         <li
           key={tag.id}
-          className='flex items-center border border-zinc-200 py-0.5 pl-1.5 pr-1 text-sm text-slate-500 hover:border-cyan-600'
+          className='flex items-center border border-zinc-200 py-0.5 pl-1.5 pr-1 text-sm text-slate-500 transition-colors hover:border-cyan-600'
         >
           {tag.label}
           <div
