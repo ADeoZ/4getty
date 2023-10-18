@@ -3,16 +3,17 @@
 import { useState } from 'react';
 import { MemoItem } from 'services/memo/models';
 import { A } from '@/basic/A';
+import { Breadcrumbs } from '@/entities/Breadcrumbs';
 import { Card } from '@/entities/Card';
 import { CardAuthor } from '@/entities/CardAuthor';
 import { CardHeader } from '@/entities/CardHeader';
 import { CardRating } from '@/entities/CardRating';
 import { CardTitle } from '@/entities/CardTitle';
-import { Category } from '@/entities/Category';
 import { List } from '@/entities/List';
 import { ListItem } from '@/entities/ListItem';
 import { Tags } from '@/entities/Tags';
 import { checkListItem, makeMark, uncheckListItem } from './controllers';
+import { Category } from '@/entities/Category';
 
 type CardListProps = MemoItem;
 
@@ -51,7 +52,9 @@ export const CardList = ({
     <div className='mb-16 mt-16 flex flex-col items-center'>
       {/* <div className='border-w absolute left-0 right-16 top-1 z-10 border-[2rem] border-amber-50' />
       <div className='absolute right-0 top-1 z-10 border-b-[4rem] border-r-[4rem] border-amber-300 border-l-transparent border-r-transparent shadow-[-3px_3px_3px] shadow-zinc-800/10' /> */}
-      <Category category={category} type={type} />
+      <Breadcrumbs type={type}>
+        <Category category={category} />
+      </Breadcrumbs>
       <Card>
         <CardHeader>
           <div className='mb-4 flex justify-between'>
