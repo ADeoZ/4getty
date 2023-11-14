@@ -8,11 +8,11 @@ import { Card } from '@/entities/Card';
 import { CardAuthor } from '@/entities/CardAuthor';
 import { CardHeader } from '@/entities/CardHeader';
 import { CardTitleInput } from '@/entities/CardTitleInput';
+import { CategoryInput } from '@/entities/CategoryInput';
 import { List } from '@/entities/List';
 import { ListItemInput } from '@/entities/ListItemInput';
 import { NewItemInput } from '@/entities/NewItemInput';
 import { TagsInput } from '@/entities/TagsInput';
-import { Select } from '@/basic/Select';
 
 type CardEditProps = MemoItem;
 
@@ -65,17 +65,7 @@ export const CardEdit = ({
   return (
     <div className='mb-16 mt-16 flex flex-col items-center'>
       <Breadcrumbs type={type}>
-        <Select
-          options={[
-            { label: category.name, value: category.id },
-            { label: 'Категория 1', value: 'category2' },
-            { label: 'Категория 2', value: 'category3' },
-            { label: 'Категория 3', value: 'category4' },
-            { label: 'Категория 4', value: 'category5' },
-          ]}
-          selectHandler={submitCategoryHandler}
-          initialValue={category.id}
-        />
+        <CategoryInput category={category} submitHandler={submitCategoryHandler} />
       </Breadcrumbs>
       <Card>
         <CardHeader>

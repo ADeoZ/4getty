@@ -16,7 +16,7 @@ type SelectProps<T extends string = string> = {
 };
 
 // TODO:
-// CategoryInput + api, placeholder, focus keydown/keyup, close on click outside, close on Esc
+// placeholder, focus keydown/keyup, close on click outside, close on Esc
 
 export const Select = ({ options, initialValue = '', selectHandler, className }: SelectProps) => {
   const [value, setValue] = useState<(typeof options)[number]['value']>(initialValue);
