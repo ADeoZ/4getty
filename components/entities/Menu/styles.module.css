@@ -5,3 +5,7 @@
 .menu__a_active {
   @apply border-b border-zinc-600 text-zinc-600;
 }
+
+.menu__a_disabled {
+  @apply cursor-default text-zinc-400;
+}
