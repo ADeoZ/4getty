@@ -90,7 +90,7 @@ export const CardList = ({
         {tagList.length > 0 && <Tags tagList={tagList} />}
       </Card>
       <div className='mx-auto'>
-        <A href={`/memo/${id}/edit`} className='hover:text-cyan-600'>
+        <A href={`/memo/${id}/edit`} className='hover:text-cyan-600 text-xl'>
           править
         </A>
       </div>

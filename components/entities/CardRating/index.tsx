@@ -18,9 +18,9 @@ export const CardRating = ({
   return (
     <div
       className={twMerge(
-        'bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fde047")] px-2 py-4 text-2xl font-bold hover:bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-4&color=15803d")]',
+        'bg-yellow-300 px-2 py-4 text-2xl font-bold hover:bg-green-700 rounded-lg transition-colors',
         ratingHasMark &&
-          'bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-4&color=15803d")] hover:bg-[url("//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=fde047")]',
+          'bg-green-700 hover:bg-yellow-300',
       )}
       onClick={clickHandler}
       onKeyDown={keyHandler}
