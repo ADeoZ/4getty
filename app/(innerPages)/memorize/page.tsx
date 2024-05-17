@@ -1,11 +1,16 @@
-import { H2 } from '@/basic/typography/H2';
-import { Card } from '@/entities/Card';
+import { CardEdit } from '@/widgets/CardEdit';
 
 const Page = () => (
-  <div className='mt-16 flex flex-col items-center'>
-    <Card>
-      <H2>Новая заметка</H2>
-    </Card>
-  </div>
+  <CardEdit
+    id={''}
+    category={{ id: 'new', name: 'Выберите категорию' }}
+    type={'todo'}
+    tagList={[]}
+    author={'Гость'}
+    timestamps={{ created: new Date().toISOString() }}
+    title={'Новая заметка'}
+    list={[]}
+    rating={{ value: 0, hasMark: false }}
+  />
 );
 export default Page;

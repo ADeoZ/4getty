@@ -88,7 +88,7 @@ export const CardEdit = ({
         <TagsInput submitHandler={addTagHandler} deleteHandler={deleteTagHandler} tags={tags} />
       </Card>
       <div className='mx-auto'>
-        <A href={`/memo/${id}`} className='hover:text-cyan-600'>
+        <A href={id ? `/memo/${id}` : '/all'} className='text-xl hover:text-cyan-600'>
           готово
         </A>
       </div>
