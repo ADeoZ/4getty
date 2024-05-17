@@ -36,10 +36,7 @@ export const CardList = ({
 
   const markHandler = async () => {
     const makeMarkRes = await makeMark({ memoId: id });
-    if (makeMarkRes) setMark(prevMark => {
-      prevMark ? rating.value-- : rating.value++;
-      return !prevMark;
-    });
+    if (makeMarkRes) setMark((prev) => !prev);
   };
 
   const changeCheckHandler = async (itemId: string, checked: boolean) => {
@@ -63,7 +60,7 @@ export const CardList = ({
           <div className='mb-4 flex justify-between'>
             <CardAuthor author={author} created={timestamps?.created} />
             <CardRating
-              ratingValue={rating.value}
+              ratingValue={mark ? rating.value + 1 : rating.value}
               ratingHasMark={mark}
               clickHandler={markHandler}
             />
@@ -93,7 +90,7 @@ export const CardList = ({
         {tagList.length > 0 && <Tags tagList={tagList} />}
       </Card>
       <div className='mx-auto'>
-        <A href={`/memo/${id}/edit`} className='hover:text-cyan-600 text-xl'>
+        <A href={`/memo/${id}/edit`} className='text-xl hover:text-cyan-600'>
           править
         </A>
       </div>

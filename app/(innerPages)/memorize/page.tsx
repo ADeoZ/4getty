@@ -2,13 +2,13 @@ import { CardEdit } from '@/widgets/CardEdit';
 
 const Page = () => (
   <CardEdit
-    id={''}
+    id=''
     category={{ id: 'new', name: 'Выберите категорию' }}
-    type={'todo'}
+    type='todo'
     tagList={[]}
-    author={'Гость'}
+    author='Гость'
     timestamps={{ created: new Date().toISOString() }}
-    title={'Новая заметка'}
+    title='Новая заметка'
     list={[]}
     rating={{ value: 0, hasMark: false }}
   />
