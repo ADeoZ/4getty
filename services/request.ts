@@ -1,6 +1,7 @@
 export class Request {
   static host =
-    process.env.BASE_URL ?? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
+    process.env.NEXT_PUBLIC_API_URL ??
+    `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
 
   static async get<T>(url: string) {
     const result = await fetch(`${this.host}${url}`, {
