@@ -18,9 +18,9 @@ export const CardRating = ({
   return (
     <div
       className={twMerge(
-        'bg-yellow-300 px-2 py-4 text-2xl font-bold hover:bg-green-700 rounded-lg transition-colors',
+        'border-yellow-300 px-2 py-4 text-2xl font-bold border-4 hover:bg-green-700 hover:border-transparent rounded-lg transition-colors',
         ratingHasMark &&
-          'bg-green-700 hover:bg-yellow-300',
+          'bg-green-700 border-transparent hover:border-yellow-300 hover:bg-yellow-200',
       )}
       onClick={clickHandler}
       onKeyDown={keyHandler}

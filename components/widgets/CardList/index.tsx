@@ -36,7 +36,10 @@ export const CardList = ({
 
   const markHandler = async () => {
     const makeMarkRes = await makeMark({ memoId: id });
-    if (makeMarkRes) setMark(true);
+    if (makeMarkRes) setMark(prevMark => {
+      prevMark ? rating.value-- : rating.value++;
+      return !prevMark;
+    });
   };
 
   const changeCheckHandler = async (itemId: string, checked: boolean) => {
